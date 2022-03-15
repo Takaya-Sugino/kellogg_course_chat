@@ -94,7 +94,7 @@
 
     <%= f.label :poster_id %>
     <!-- Input for poster_id start -->
-    <%= f.number_field :poster_id, class: poster_class, placeholder: "Enter poster" %>
+    <%= f.collection_select :poster_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for poster_id end -->
     <% if poster_was_invalid %>
       <% post.errors.full_messages_for(:poster).each do |message| %>

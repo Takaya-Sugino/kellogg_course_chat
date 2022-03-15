@@ -33,7 +33,7 @@
     <%= f.label :poster_id %>
 
     <!-- Input for poster_id start -->
-    <%= f.text_field :poster_id, class: "form-control" %>
+    <%= f.collection_select :poster_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for poster_id end -->
   </div>
   <!-- Label and input for poster_id end -->
