@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Session</dt>
       <!-- Display session_id start -->
-      <dd><%= bookmark.session_id %></dd>
+      <dd>
+        <% if @bookmark.session.present? %>
+          <%= link_to bookmark.session, bookmark.session %>
+        <% end %>
+      </dd>
       <!-- Display session_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <%= link_to bookmark.user, bookmark.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

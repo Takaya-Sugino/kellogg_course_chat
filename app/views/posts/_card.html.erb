@@ -17,12 +17,20 @@
 
       <dt>Session</dt>
       <!-- Display session_id start -->
-      <dd><%= post.session_id %></dd>
+      <dd>
+        <% if @post.session.present? %>
+          <%= link_to post.session, post.session %>
+        <% end %>
+      </dd>
       <!-- Display session_id end -->
 
       <dt>Poster</dt>
       <!-- Display poster_id start -->
-      <dd><%= post.poster_id %></dd>
+      <dd>
+        <% if @post.user.present? %>
+          <%= link_to post.user, post.user %>
+        <% end %>
+      </dd>
       <!-- Display poster_id end -->
 
     </dl>

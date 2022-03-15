@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Course</dt>
       <!-- Display course_id start -->
-      <dd><%= session.course_id %></dd>
+      <dd>
+        <% if @session.course.present? %>
+          <%= link_to session.course, session.course %>
+        <% end %>
+      </dd>
       <!-- Display course_id end -->
 
       <dt>Professor</dt>
       <!-- Display professor_id start -->
-      <dd><%= session.professor_id %></dd>
+      <dd>
+        <% if @session.professor.present? %>
+          <%= link_to session.professor, session.professor %>
+        <% end %>
+      </dd>
       <!-- Display professor_id end -->
 
     </dl>
