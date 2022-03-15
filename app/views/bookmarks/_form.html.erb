@@ -16,7 +16,7 @@
 
     <%= f.label :session_id %>
     <!-- Input for session_id start -->
-    <%= f.number_field :session_id, class: session_class, placeholder: "Enter session" %>
+    <%= f.collection_select :session_id, Session.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for session_id end -->
     <% if session_was_invalid %>
       <% bookmark.errors.full_messages_for(:session).each do |message| %>
