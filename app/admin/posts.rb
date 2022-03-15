@@ -1,5 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :rating, :description, :session_id, :poster_id
+  permit_params :rating, :poster_id, :course_id, :professor_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

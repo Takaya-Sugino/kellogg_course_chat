@@ -24,43 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% bio_class = "form-control" %>
-    <% bio_was_invalid = professor.errors.include?(:bio) %>
+    <% profile_url_class = "form-control" %>
+    <% profile_url_was_invalid = professor.errors.include?(:profile_url) %>
 
     <% if was_validated %>
-      <% if bio_was_invalid %>
-        <% bio_class << " is-invalid" %>
+      <% if profile_url_was_invalid %>
+        <% profile_url_class << " is-invalid" %>
       <% else %>
-        <% bio_class << " is-valid" %>
+        <% profile_url_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :bio %>
-    <%= f.text_field :bio, class: bio_class, placeholder: "Enter bio" %>
-    <% if bio_was_invalid %>
-      <% professor.errors.full_messages_for(:bio).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <% url_class = "form-control" %>
-    <% url_was_invalid = professor.errors.include?(:url) %>
-
-    <% if was_validated %>
-      <% if url_was_invalid %>
-        <% url_class << " is-invalid" %>
-      <% else %>
-        <% url_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :url %>
-    <%= f.text_field :url, class: url_class, placeholder: "Enter url" %>
-    <% if url_was_invalid %>
-      <% professor.errors.full_messages_for(:url).each do |message| %>
+    <%= f.label :profile_url %>
+    <%= f.text_field :profile_url, class: profile_url_class, placeholder: "Enter profile url" %>
+    <% if profile_url_was_invalid %>
+      <% professor.errors.full_messages_for(:profile_url).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

@@ -3,14 +3,11 @@ class ProfessorResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :name, :string
-  attribute :bio, :string
-  attribute :url, :string
+  attribute :profile_url, :string
 
   # Direct associations
 
-  has_many :sessions
+  has_many :posts
 
   # Indirect associations
-
-  many_to_many :courses
 end

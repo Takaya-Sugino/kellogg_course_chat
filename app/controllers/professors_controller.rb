@@ -3,12 +3,11 @@ class ProfessorsController < ApplicationController
 
   def index
     @q = Professor.ransack(params[:q])
-    @professors = @q.result(distinct: true).includes(:sessions,
-                                                     :courses).page(params[:page]).per(10)
+    @professors = @q.result(distinct: true).includes(:posts).page(params[:page]).per(10)
   end
 
   def show
-    @session = Session.new
+    @post = Post.new
   end
 
   def new
@@ -47,6 +46,6 @@ class ProfessorsController < ApplicationController
   end
 
   def professor_params
-    params.require(:professor).permit(:name, :bio, :url)
+    params.require(:professor).permit(:name, :profile_url)
   end
 end
