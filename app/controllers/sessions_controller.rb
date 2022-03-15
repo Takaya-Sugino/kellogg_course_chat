@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   # GET /sessions
   def index
-    @sessions = Session.all
+    @sessions = Session.page(params[:page]).per(10)
   end
 
   # GET /sessions/1
