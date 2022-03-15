@@ -27,7 +27,7 @@
     <%= f.label :session_id %>
 
     <!-- Input for session_id start -->
-    <%= f.text_field :session_id, class: "form-control" %>
+    <%= f.collection_select :session_id, Session.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for session_id end -->
   </div>
   <!-- Label and input for session_id end -->
