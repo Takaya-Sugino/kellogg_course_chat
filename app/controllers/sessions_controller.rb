@@ -42,8 +42,14 @@ class SessionsController < ApplicationController
   # DELETE /sessions/1
   def destroy
     @session.destroy
-    redirect_to sessions_url, notice: 'Session was successfully destroyed.'
+    message = "Session was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to sessions_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
