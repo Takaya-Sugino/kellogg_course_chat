@@ -11,6 +11,10 @@ class Post < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :commenters,
+             :through => :comments,
+             :source => :commenter
+
   # Validations
 
   # Scopes

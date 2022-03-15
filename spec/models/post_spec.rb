@@ -14,6 +14,8 @@ RSpec.describe Post, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:commenters) }
+
     end
 
     describe "Validations" do
