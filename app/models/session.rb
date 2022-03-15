@@ -1,6 +1,8 @@
 class Session < ApplicationRecord
   # Direct associations
 
+  belongs_to :course
+
   # Indirect associations
 
   # Validations

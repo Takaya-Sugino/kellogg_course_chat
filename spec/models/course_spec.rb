@@ -4,6 +4,8 @@ RSpec.describe Course, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:sessions) }
+
     end
 
     describe "InDirect Associations" do
