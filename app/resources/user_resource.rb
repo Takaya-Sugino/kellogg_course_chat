@@ -10,6 +10,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :posts,
+             foreign_key: :poster_id
+
   # Indirect associations
 
 end
