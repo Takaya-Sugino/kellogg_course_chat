@@ -12,4 +12,6 @@ class ProfessorResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :courses
+
 end
