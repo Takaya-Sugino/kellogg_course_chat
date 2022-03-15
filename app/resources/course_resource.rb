@@ -8,6 +8,8 @@ class CourseResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :sessions
+
   # Indirect associations
 
 end
