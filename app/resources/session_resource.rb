@@ -7,6 +7,8 @@ class SessionResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :professor
+
   belongs_to :course
 
   # Indirect associations
