@@ -7,6 +7,8 @@ class SessionResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :bookmarks
+
   has_many   :posts
 
   belongs_to :professor
