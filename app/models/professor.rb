@@ -6,6 +6,10 @@ class Professor < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :courses,
+             :through => :sessions,
+             :source => :course
+
   # Validations
 
   # Scopes
