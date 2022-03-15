@@ -8,6 +8,8 @@ class SessionsController < ApplicationController
 
   # GET /sessions/1
   def show
+    @bookmark = Bookmark.new
+    @post = Post.new
   end
 
   # GET /sessions/new
@@ -24,7 +26,12 @@ class SessionsController < ApplicationController
     @session = Session.new(session_params)
 
     if @session.save
-      redirect_to @session, notice: 'Session was successfully created.'
+      message = 'Session was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @session, notice: message
+      end
     else
       render :new
     end

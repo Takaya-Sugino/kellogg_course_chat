@@ -8,6 +8,7 @@ class ProfessorsController < ApplicationController
 
   # GET /professors/1
   def show
+    @session = Session.new
   end
 
   # GET /professors/new

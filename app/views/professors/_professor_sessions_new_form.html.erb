@@ -1,0 +1,22 @@
+<!-- Form session start -->
+<%= form_with(model: @session, local: true) do |f| %>
+<!-- Form session end -->
+
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <%= f.label :course_id %>
+
+    <!-- Input for course_id start -->
+    <%= f.text_field :course_id, class: "form-control" %>
+    <!-- Input for course_id end -->
+  </div>
+  <!-- Label and input for course_id end -->
+
+  <!-- Label and input for professor_id start -->
+  <!-- Input for professor_id start -->
+  <%= f.hidden_field :professor_id, value: @professor.id %>
+  <!-- Input for professor_id end -->
+  <!-- Label and input for professor_id end -->
+
+  <%= f.submit "Create session", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
