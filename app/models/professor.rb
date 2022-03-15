@@ -1,14 +1,10 @@
 class Professor < ApplicationRecord
   # Direct associations
 
-  has_many   :sessions,
+  has_many   :posts,
              dependent: :destroy
 
   # Indirect associations
-
-  has_many   :courses,
-             through: :sessions,
-             source: :course
 
   # Validations
 

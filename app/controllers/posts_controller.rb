@@ -3,13 +3,11 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user, :session, :comments,
-                                                :commenters).page(params[:page]).per(10)
+    @posts = @q.result(distinct: true).includes(:course, :poster,
+                                                :professor).page(params[:page]).per(10)
   end
 
-  def show
-    @comment = Comment.new
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -57,7 +55,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:rating, :description, :session_id,
-                                 :poster_id)
+    params.require(:post).permit(:rating, :poster_id, :course_id,
+                                 :professor_id)
   end
 end

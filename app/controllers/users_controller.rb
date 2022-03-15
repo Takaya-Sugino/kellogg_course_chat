@@ -3,13 +3,11 @@ class UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true).includes(:posts, :comments,
-                                                :bookmarks, :user_posts, :sessions).page(params[:page]).per(10)
+    @users = @q.result(distinct: true).includes(:posts,
+                                                :courses).page(params[:page]).per(10)
   end
 
   def show
-    @bookmark = Bookmark.new
-    @comment = Comment.new
     @post = Post.new
   end
 
@@ -50,6 +48,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :bio, :graduation_year, :program,
-                                 :email)
+                                 :email, :password)
   end
 end

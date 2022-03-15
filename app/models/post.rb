@@ -1,19 +1,14 @@
 class Post < ApplicationRecord
   # Direct associations
 
-  has_many   :comments,
-             dependent: :destroy
+  belongs_to :professor
 
-  belongs_to :session
+  belongs_to :poster,
+             class_name: "User"
 
-  belongs_to :user,
-             foreign_key: "poster_id"
+  belongs_to :course
 
   # Indirect associations
-
-  has_many   :commenters,
-             through: :comments,
-             source: :commenter
 
   # Validations
 

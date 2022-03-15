@@ -1,14 +1,14 @@
 class Course < ApplicationRecord
   # Direct associations
 
-  has_many   :sessions,
+  has_many   :posts,
              dependent: :destroy
 
   # Indirect associations
 
-  has_many   :professors,
-             through: :sessions,
-             source: :professor
+  has_many   :posters,
+             through: :posts,
+             source: :poster
 
   # Validations
 

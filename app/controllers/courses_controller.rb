@@ -3,12 +3,12 @@ class CoursesController < ApplicationController
 
   def index
     @q = Course.ransack(params[:q])
-    @courses = @q.result(distinct: true).includes(:sessions,
-                                                  :professors).page(params[:page]).per(10)
+    @courses = @q.result(distinct: true).includes(:posts,
+                                                  :posters).page(params[:page]).per(10)
   end
 
   def show
-    @session = Session.new
+    @post = Post.new
   end
 
   def new

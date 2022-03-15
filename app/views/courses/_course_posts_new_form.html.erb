@@ -6,13 +6,13 @@
     <%= f.text_field :rating, class: "form-control" %>
   </div>
 
-  <%= f.hidden_field :poster_id, value: @user.id %>
-
   <div class="form-group">
-    <%= f.label :course_id %>
+    <%= f.label :poster_id %>
 
-    <%= f.collection_select :course_id, Course.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :poster_id, User.all, :id, :to_s, {}, class: "form-control" %>
   </div>
+
+  <%= f.hidden_field :course_id, value: @course.id %>
 
   <div class="form-group">
     <%= f.label :professor_id %>

@@ -8,20 +8,24 @@
       <dt>Rating</dt>
       <dd><%= post.rating %></dd>
 
-      <dt>Description</dt>
-      <dd><%= post.description %></dd>
-
-      <dt>Session</dt>
+      <dt>Poster</dt>
       <dd>
-        <% if @post.session.present? %>
-          <%= link_to post.session, post.session %>
+        <% if @post.poster.present? %>
+          <%= link_to post.poster, post.poster %>
         <% end %>
       </dd>
 
-      <dt>Poster</dt>
+      <dt>Course</dt>
       <dd>
-        <% if @post.user.present? %>
-          <%= link_to post.user, post.user %>
+        <% if @post.course.present? %>
+          <%= link_to post.course, post.course %>
+        <% end %>
+      </dd>
+
+      <dt>Professor</dt>
+      <dd>
+        <% if @post.professor.present? %>
+          <%= link_to post.professor, post.professor %>
         <% end %>
       </dd>
 
