@@ -1,6 +1,9 @@
 class Session < ApplicationRecord
   # Direct associations
 
+  has_many   :posts,
+             :dependent => :destroy
+
   belongs_to :professor
 
   belongs_to :course

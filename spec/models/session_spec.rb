@@ -4,6 +4,8 @@ RSpec.describe Session, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:posts) }
+
     it { should belong_to(:professor) }
 
     it { should belong_to(:course) }

@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   # Direct associations
 
+  belongs_to :session
+
   belongs_to :user,
              :foreign_key => "poster_id"
 
