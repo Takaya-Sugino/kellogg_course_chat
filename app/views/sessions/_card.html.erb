@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Session #<%= session.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Course</dt>
+      <!-- Display course_id start -->
+      <dd><%= session.course_id %></dd>
+      <!-- Display course_id end -->
+
+      <dt>Professor</dt>
+      <!-- Display professor_id start -->
+      <dd><%= session.professor_id %></dd>
+      <!-- Display professor_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back session, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link session start -->
+      <div class="col">
+        <%= link_to edit_session_url(session), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link session end -->
+
+      <!-- Delete link session start -->
+      <div class="col">
+        <%= link_to session, method: :delete, data: { confirm: "Do you really want to delete this session?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link session end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(session.updated_at) %> ago
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<% was_validated = session.errors.any? %>
+
+<%= form_with(model: session, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <% course_class = "form-control" %>
+    <% course_was_invalid = session.errors.include?(:course) %>
+
+    <% if was_validated %>
+      <% if course_was_invalid %>
+        <% course_class << " is-invalid" %>
+      <% else %>
+        <% course_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :course_id %>
+    <!-- Input for course_id start -->
+    <%= f.number_field :course_id, class: course_class, placeholder: "Enter course" %>
+    <!-- Input for course_id end -->
+    <% if course_was_invalid %>
+      <% session.errors.full_messages_for(:course).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for course_id end -->
+  <!-- Label and input for professor_id start -->
+  <div class="form-group">
+    <% professor_class = "form-control" %>
+    <% professor_was_invalid = session.errors.include?(:professor) %>
+
+    <% if was_validated %>
+      <% if professor_was_invalid %>
+        <% professor_class << " is-invalid" %>
+      <% else %>
+        <% professor_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :professor_id %>
+    <!-- Input for professor_id start -->
+    <%= f.number_field :professor_id, class: professor_class, placeholder: "Enter professor" %>
+    <!-- Input for professor_id end -->
+    <% if professor_was_invalid %>
+      <% session.errors.full_messages_for(:professor).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for professor_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
