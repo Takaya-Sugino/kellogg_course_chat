@@ -13,6 +13,10 @@ class Session < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :bookmarks,
+             :source => :user
+
   # Validations
 
   # Scopes
