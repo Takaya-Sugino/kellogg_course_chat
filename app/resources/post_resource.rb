@@ -9,6 +9,8 @@ class PostResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   belongs_to :session
 
   belongs_to :user,
