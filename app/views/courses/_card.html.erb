@@ -6,19 +6,13 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= course.name %></dd>
-      <!-- Display name end -->
 
       <dt>Category</dt>
-      <!-- Display category start -->
       <dd><%= course.category %></dd>
-      <!-- Display category end -->
 
       <dt>Required</dt>
-      <!-- Display required start -->
       <dd><%= course.required %></dd>
-      <!-- Display required end -->
 
     </dl>
 
@@ -27,21 +21,17 @@
         <%= link_to_show_or_back course, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link course start -->
       <div class="col">
         <%= link_to edit_course_url(course), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link course end -->
 
-      <!-- Delete link course start -->
       <div class="col">
         <%= link_to course, method: :delete, data: { confirm: "Do you really want to delete this course?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link course end -->
     </div>
   </div>
 

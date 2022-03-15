@@ -6,32 +6,24 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Rating</dt>
-      <!-- Display rating start -->
       <dd><%= post.rating %></dd>
-      <!-- Display rating end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= post.description %></dd>
-      <!-- Display description end -->
 
       <dt>Session</dt>
-      <!-- Display session_id start -->
       <dd>
         <% if @post.session.present? %>
           <%= link_to post.session, post.session %>
         <% end %>
       </dd>
-      <!-- Display session_id end -->
 
       <dt>Poster</dt>
-      <!-- Display poster_id start -->
       <dd>
         <% if @post.user.present? %>
           <%= link_to post.user, post.user %>
         <% end %>
       </dd>
-      <!-- Display poster_id end -->
 
     </dl>
 
@@ -40,21 +32,17 @@
         <%= link_to_show_or_back post, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link post start -->
       <div class="col">
         <%= link_to edit_post_url(post), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link post end -->
 
-      <!-- Delete link post start -->
       <div class="col">
         <%= link_to post, method: :delete, data: { confirm: "Do you really want to delete this post?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link post end -->
     </div>
   </div>
 

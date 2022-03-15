@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = user.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% user.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for bio start -->
   <div class="form-group">
     <% bio_class = "form-control" %>
     <% bio_was_invalid = user.errors.include?(:bio) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :bio %>
-    <!-- Input for bio start -->
     <%= f.text_field :bio, class: bio_class, placeholder: "Enter bio" %>
-    <!-- Input for bio end -->
     <% if bio_was_invalid %>
       <% user.errors.full_messages_for(:bio).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for bio end -->
-  <!-- Label and input for graduation_year start -->
   <div class="form-group">
     <% graduation_year_class = "form-control" %>
     <% graduation_year_was_invalid = user.errors.include?(:graduation_year) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :graduation_year %>
-    <!-- Input for graduation_year start -->
     <%= f.text_field :graduation_year, class: graduation_year_class, placeholder: "Enter graduation year" %>
-    <!-- Input for graduation_year end -->
     <% if graduation_year_was_invalid %>
       <% user.errors.full_messages_for(:graduation_year).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for graduation_year end -->
-  <!-- Label and input for program start -->
   <div class="form-group">
     <% program_class = "form-control" %>
     <% program_was_invalid = user.errors.include?(:program) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :program %>
-    <!-- Input for program start -->
     <%= f.text_field :program, class: program_class, placeholder: "Enter program" %>
-    <!-- Input for program end -->
     <% if program_was_invalid %>
       <% user.errors.full_messages_for(:program).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for program end -->
-  <!-- Label and input for email start -->
   <div class="form-group">
     <% email_class = "form-control" %>
     <% email_was_invalid = user.errors.include?(:email) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :email %>
-    <!-- Input for email start -->
     <%= f.text_field :email, class: email_class, placeholder: "Enter email" %>
-    <!-- Input for email end -->
     <% if email_was_invalid %>
       <% user.errors.full_messages_for(:email).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for email end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
