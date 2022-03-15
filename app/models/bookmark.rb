@@ -14,5 +14,4 @@ class Bookmark < ApplicationRecord
   def to_s
     session.to_s
   end
-
 end

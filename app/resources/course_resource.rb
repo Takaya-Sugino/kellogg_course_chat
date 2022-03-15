@@ -8,10 +8,9 @@ class CourseResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :sessions
+  has_many :sessions
 
   # Indirect associations
 
   many_to_many :professors
-
 end

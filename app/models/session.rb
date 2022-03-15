@@ -2,10 +2,10 @@ class Session < ApplicationRecord
   # Direct associations
 
   has_many   :bookmarks,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :posts,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :professor
 
@@ -14,8 +14,8 @@ class Session < ApplicationRecord
   # Indirect associations
 
   has_many   :users,
-             :through => :bookmarks,
-             :source => :user
+             through: :bookmarks,
+             source: :user
 
   # Validations
 
@@ -24,5 +24,4 @@ class Session < ApplicationRecord
   def to_s
     course.to_s
   end
-
 end

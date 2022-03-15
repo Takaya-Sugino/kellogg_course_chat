@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy]
+  before_action :set_session, only: %i[show edit update destroy]
 
   # GET /sessions
   def index
     @q = Session.ransack(params[:q])
-    @sessions = @q.result(:distinct => true).includes(:course, :professor, :posts, :bookmarks, :users).page(params[:page]).per(10)
+    @sessions = @q.result(distinct: true).includes(:course, :professor,
+                                                   :posts, :bookmarks, :users).page(params[:page]).per(10)
   end
 
   # GET /sessions/1
@@ -19,17 +20,16 @@ class SessionsController < ApplicationController
   end
 
   # GET /sessions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /sessions
   def create
     @session = Session.new(session_params)
 
     if @session.save
-      message = 'Session was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Session was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @session, notice: message
       end
@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
   # PATCH/PUT /sessions/1
   def update
     if @session.update(session_params)
-      redirect_to @session, notice: 'Session was successfully updated.'
+      redirect_to @session, notice: "Session was successfully updated."
     else
       render :edit
     end
@@ -51,22 +51,22 @@ class SessionsController < ApplicationController
   def destroy
     @session.destroy
     message = "Session was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to sessions_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_session
-      @session = Session.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def session_params
-      params.require(:session).permit(:course_id, :professor_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_session
+    @session = Session.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def session_params
+    params.require(:session).permit(:course_id, :professor_id)
+  end
 end

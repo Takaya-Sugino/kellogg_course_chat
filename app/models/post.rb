@@ -2,18 +2,18 @@ class Post < ApplicationRecord
   # Direct associations
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :session
 
   belongs_to :user,
-             :foreign_key => "poster_id"
+             foreign_key: "poster_id"
 
   # Indirect associations
 
   has_many   :commenters,
-             :through => :comments,
-             :source => :commenter
+             through: :comments,
+             source: :commenter
 
   # Validations
 
@@ -22,5 +22,4 @@ class Post < ApplicationRecord
   def to_s
     rating
   end
-
 end

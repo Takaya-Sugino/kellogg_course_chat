@@ -2,13 +2,13 @@ class Professor < ApplicationRecord
   # Direct associations
 
   has_many   :sessions,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :courses,
-             :through => :sessions,
-             :source => :course
+             through: :sessions,
+             source: :course
 
   # Validations
 
@@ -17,5 +17,4 @@ class Professor < ApplicationRecord
   def to_s
     name
   end
-
 end

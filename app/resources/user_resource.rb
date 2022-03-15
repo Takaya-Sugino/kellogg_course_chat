@@ -24,5 +24,4 @@ class UserResource < ApplicationResource
 
   many_to_many :user_posts,
                resource: PostResource
-
 end
