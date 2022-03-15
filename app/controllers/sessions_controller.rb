@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
 
   # GET /sessions
   def index
-    @sessions = Session.page(params[:page]).per(10)
+    @q = Session.ransack(params[:q])
+    @sessions = @q.result(:distinct => true).includes(:course, :professor, :posts, :bookmarks, :users).page(params[:page]).per(10)
   end
 
   # GET /sessions/1
