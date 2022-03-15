@@ -20,4 +20,7 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :user_posts,
+               resource: PostResource
+
 end
